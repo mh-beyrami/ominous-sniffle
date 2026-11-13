@@ -1,0 +1,22 @@
+{
+  "name": "Cloud Lite Browser",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Lite Firefox Browser",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postStartCommand": "docker compose up -d",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}

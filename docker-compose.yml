@@ -1,0 +1,18 @@
+services:
+  lite-browser:
+    image: lscr.io/linuxserver/firefox:latest
+    container_name: lite-browser
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Tehran
+      - TITLE=Cloud Lite Browser
+      # اختیاری: اگر پورت 3000 را Public می‌کنید، دو خط زیر را از حالت کامنت خارج کنید
+      # - CUSTOM_USER=admin
+      # - PASSWORD=ChangeThisPassword
+    ports:
+      - "3000:3000"
+    shm_size: "1gb"
+    restart: unless-stopped
